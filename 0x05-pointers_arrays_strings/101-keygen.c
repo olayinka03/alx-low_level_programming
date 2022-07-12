@@ -4,36 +4,23 @@
 #include <main.h>
 
 /**
- * main - generate random passwords.
- *
- * Return: 0.
- */
+* main - generate random passwords.
+* Return: 0.
+*/
 
 int main(void)
 {
-	int ascii = 2772, i = 0, j, random;
-	char password[100];
-	time_t t;
+	int pass, sum;
 
-	srand((int) time(&t));
-	while (ascii > 126)
+	srand(time(NULL));
+	sum = 0;
+	while (sum <= 2645)
 	{
-		random = rand() % 126;
-		password[i] = random;
-		ascii -= random;
-		i++;
+		pass = (rand() % 126);
+		sum += pass;
+		printf("%c", pass);
 	}
-	if (ascii > 0)
-		password[i] = ascii;
-	else
-	{
-		i--;
-	}
-	
+	printf("%c", 2771 - sum);
 
-	for (j = 0; j <= i; j++)
-	{
-		printf("%c", password[j]);
-	}
 	return (0);
 }
