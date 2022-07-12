@@ -1,10 +1,9 @@
 #include "main.h"
 
 /**
-* reset_to_98 -Write a script that takes a pointer to an int as a parameter and updates the
+* reset_to_98 - A script that takes a pointer to an int as a parameter and updates the
 * value it points to to 98
 * @n: parameter to be updated
-*
 * Return: no return
 */
 void reset_to_98(int *n)
