@@ -7,23 +7,28 @@
 * @needle: string be located
 *
 * Return: returns pointer to beginning of substring located
-* or NULL if the substring is not found
+* or NULL if the substring is not f}
 */
 char *_strstr(char *haystack, char *needle)
 {
-	int i;
+	char *result = haystack, *fneedle = needle;
 
-	if (*needle == '\0')
-		return (haystack);
-
-	for (i = 0; *(haystack + i) != '\0'; i++)
+	while (*haystack)
 	{
-		if (*(haystack + i) == *needle)
+		while (*needle)
 		{
-			char *ptr = _strstr(haystack + i + 1, needle + 1);
-
-			return ((ptr) ? ptr - 1 : NULL);
+			if (*haystack++ != *needle++)
+			{
+				break;
+			}
 		}
+		if (!*needle)
+		{
+			return (result);
+		}
+		needle = fneedle;
+		result++;
+		haystack = result;
 	}
-	return (NULL);
+	return (0);
 }
